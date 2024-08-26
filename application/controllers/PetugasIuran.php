@@ -145,8 +145,6 @@ class PetugasIuran extends CI_Controller
         $paketbayar = $this->input->post('paketBayar');
         $status = $this->input->post('status');
 
-        $nominal = ($paketbayar == 'Non Tunai') ? $this->input->post('nominal') : 0;
-
         $dataUpdate = array(
             'idUser' => $id_u,
             'idPetugas' => $id_p,
@@ -155,9 +153,6 @@ class PetugasIuran extends CI_Controller
             'status' => $status
         );
         $this->Madmin->update('tbl_iuran_wajib', $dataUpdate, 'idIuran', $id);
-        if ($paketbayar == '2') {
-            $this->Madmin->kurangiSaldoKeluar($id_u, $nominal);
-        }
         $this->session->set_flashdata('success', 'Berhasil ubah data iuran wajib!');
         redirect('petugas_iuran');
     }

@@ -74,9 +74,9 @@
                                                     <label for="paketBayar" class="font-weight-bold">Paket Bayar</label>
                                                     <select class="form-control" name="paketBayar">
                                                         <option disabled selected>Pilih paket bayar</option>
-                                                        <option value="1" <?= ($iuran->paketBayar == '1') ? 'selected' : '' ?>>1 Minggu</option>
-                                                        <option value="2" <?= ($iuran->paketBayar == '2') ? 'selected' : '' ?>>1 Bulan</option>
-                                                        <option value="3" <?= ($iuran->paketBayar == '3') ? 'selected' : '' ?>>1 Tahun</option>
+                                                        <option value="1" <?= ($iuran->paketBayar == '10000') ? 'selected' : '' ?>>1 Minggu</option>
+                                                        <option value="2" <?= ($iuran->paketBayar == '30000') ? 'selected' : '' ?>>1 Bulan</option>
+                                                        <option value="3" <?= ($iuran->paketBayar == '330000') ? 'selected' : '' ?>>1 Tahun</option>
                                                     </select>
                                                 </div>
 
