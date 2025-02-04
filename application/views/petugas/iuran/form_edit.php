@@ -35,8 +35,8 @@
                                         <div class="contact-form">
                                             <form name="sentMessage" method="post" action="<?php echo site_url('petugas_iuran/edit'); ?>">
                                                 <input type="hidden" name="id" value="<?php echo $iuran->idIuran; ?>">
-                                                <div class="control-group mb-3">
-                                                    <label for="idUser" class="font-weight-bold">Nama User</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idUser" class="font-weight-bold">Nama User</label>
                                                     <input type="hidden" name="idUser" value="<?php echo $iuran->idUser; ?>">
                                                     <?php
                                                     $user_id = $iuran->idUser;
@@ -45,8 +45,8 @@
                                                     <input class="form-control" value="<?php echo $user->name; ?>" disabled>
                                                     <p class="help-block text-danger"></p>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="idPetugas" class="font-weight-bold">Nama Petugas</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idPetugas" class="font-weight-bold">Nama Petugas</label>
                                                     <input type="hidden" name="idPetugas" value="<?php echo $iuran->idPetugas; ?>">
                                                     <input class="form-control" value=<?php
                                                             $petugas_id = $iuran->idPetugas;
@@ -55,8 +55,8 @@
                                                             ?> disabled>
                                                     </input>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="tanggal" class="font-weight-bold">Tanggal</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="tanggal" class="font-weight-bold">Tanggal</label>
                                                     <div class="input-group date" data-provide="datepicker">
                                                         <input type="hidden" name="tanggal" value="<?php echo $iuran->tanggal; ?>">
                                                         <input type="date" class="form-control" name="tanggal" value=<?php
@@ -70,8 +70,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="paketBayar" class="font-weight-bold">Paket Bayar</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="paketBayar" class="font-weight-bold">Paket Bayar</label>
                                                     <select class="form-control" name="paketBayar">
                                                         <option disabled selected>Pilih paket bayar</option>
                                                         <option value="1" <?= ($iuran->paketBayar == '10000') ? 'selected' : '' ?>>1 Minggu</option>
@@ -80,8 +80,8 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="control-group mb-3">
-                                                    <label for="status" class="font-weight-bold">Status</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="status" class="font-weight-bold">Status</label>
                                                     <select class="form-control" name="status">
                                                         <option disabled selected>Pilih status bayar</option>
                                                         <option value="1" <?= ($iuran->status == 'Sudah Bayar') ? 'selected' : '' ?>>Sudah Bayar</option>
@@ -89,7 +89,7 @@
                                                     </select>
                                                 </div>
 
-                                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMesrsageButton">Simpan</button>
+                                                <button class="btn btn-primary py-2 px-4 mx-1" type="submit" id="sendMesrsageButton">Simpan</button>
                                         </div>
                                         </form>
                                     </div>

@@ -25,9 +25,9 @@
       <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-          <li><a href="<?php echo site_url('admin_petugas'); ?>"><i class="fa fa-edit"></i> Petugas </a>
+          <li <?php if ($this->uri->segment(1) == 'admin_petugas') echo 'class="active"'; ?>><a href="<?php echo site_url('admin_petugas'); ?>"><i class="fa fa-edit"></i> Petugas </a>
           </li>
-          <li><a href="<?php echo site_url('admin_user'); ?>"><i class="fa fa-desktop"></i> User </a>
+          <li <?php if ($this->uri->segment(1) == 'admin_user') echo 'class="active"'; ?>><a href="<?php echo site_url('admin_user'); ?>"><i class="fa fa-desktop"></i> User </a>
           </li>
           <li><a href="<?php echo site_url('admin_user_qrcode'); ?>"><i class="fa fa-qrcode"></i> QR Code User </a>
           </li>

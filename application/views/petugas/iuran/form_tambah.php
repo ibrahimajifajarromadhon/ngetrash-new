@@ -47,8 +47,8 @@
                                                         <strong><?php echo $this->session->flashdata('error_idUser'); ?></strong>
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="control-group mb-3">
-                                                    <label for="idUser" class="font-weight-bold">Nama User</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idUser" class="font-weight-bold">Nama User</label>
                                                     <select class="form-control" name="idUser">
                                                         <option disabled selected>Pilih nama user</option>
                                                         <?php foreach ($user as $u) { ?>
@@ -63,15 +63,10 @@
                                                         <strong><?php echo $this->session->flashdata('error_idPetugas'); ?></strong>
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="control-group mb-3">
-                                                    <label for="idPetugas" class="font-weight-bold">Nama Petugas</label>
-                                                    <select class="form-control" name="idPetugas">
-                                                        <option disabled selected>Pilih nama petugas</option>
-                                                        <?php foreach ($petugas1 as $p) { ?>
-                                                            <?php $selected = ($this->session->flashdata('input_idPetugas') == $p->idPetugas) ? 'selected' : ''; ?>
-                                                            <option value="<?= $p->idPetugas ?>" <?= $selected ?>><?= $p->name ?></option>
-                                                        <?php } ?>
-                                                    </select>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idPetugas" class="font-weight-bold">Nama Petugas</label>
+                                                    <input class="form-control" value=<?php echo $petugas1; ?> disabled>
+                                                    </input>
                                                 </div>
                                                 <?php if ($this->session->flashdata('error_tanggal')) : ?>
                                                     <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">
@@ -79,8 +74,8 @@
                                                         <strong><?php echo $this->session->flashdata('error_tanggal'); ?></strong>
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="control-group mb-3">
-                                                    <label for="tanggal" class="font-weight-bold">Tanggal</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="tanggal" class="font-weight-bold">Tanggal</label>
                                                     <div class="input-group date" data-provide="datepicker">
                                                         <?php
                                                         $tanggal_value = $this->session->flashdata('input_tanggal');
@@ -101,8 +96,8 @@
                                                         <strong><?php echo $this->session->flashdata('error_paketBayar'); ?></strong>
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="control-group mb-3">
-                                                    <label for="paketBayar" class="font-weight-bold">Paket Bayar</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="paketBayar" class="font-weight-bold">Paket Bayar</label>
                                                     <select class="form-control" name="paketBayar">
                                                         <option disabled selected>Pilih paket bayar</option>
                                                         <option value="1" <?= ($this->session->flashdata('input_paketBayar') == '1') ? 'selected' : ''; ?>>1 Minggu</option>
@@ -112,10 +107,10 @@
                                                 </div>
                                                 <?php if ($this->session->flashdata('input_paketBayar') == '2') : ?>
                                                     <div class="control-group" id="nominalInput" style="display: none;">
-                                                    <label for="nominal">Nominal</label>
-                                                    <input type="number" class="form-control" name="nominal" id="nominal" placeholder="Masukkan Nominal">
-                                                    <p class="help-block text-danger"></p>
-                                                </div>
+                                                        <label id="nominal">Nominal</label>
+                                                        <input type="number" class="form-control" name="nominal" id="nominal" placeholder="Masukkan Nominal">
+                                                        <p class="help-block text-danger"></p>
+                                                    </div>
                                                 <?php endif; ?>
                                                 <?php if ($this->session->flashdata('error_status')) : ?>
                                                     <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">
@@ -123,8 +118,8 @@
                                                         <strong><?php echo $this->session->flashdata('error_status'); ?></strong>
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="control-group mb-3">
-                                                    <label for="status" class="font-weight-bold">Status</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="status" class="font-weight-bold">Status</label>
                                                     <select class="form-control" name="status">
                                                         <option disabled selected>Pilih status bayar</option>
                                                         <option value="1" <?= ($this->session->flashdata('input_status') == '1') ? 'selected' : ''; ?>>Sudah Bayar</option>
@@ -132,7 +127,7 @@
                                                     </select>
                                                 </div>
 
-                                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMesrsageButton">Simpan</button>
+                                                <button class="btn btn-primary py-2 px-4 mx-1" type="submit" id="sendMesrsageButton">Simpan</button>
                                         </div>
                                         </form>
                                     </div>
@@ -152,4 +147,3 @@
 </div>
 </div>
 <!-- /page content -->
-

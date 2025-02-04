@@ -15,6 +15,8 @@ class PetugasIuran extends CI_Controller
         if (empty($this->session->userdata('Petugas'))) {
             redirect('petugas/login');
         }
+
+        $idPetugas = $this->session->userdata('Petugas')['idPetugas'];
         $data['petugas'] = $this->Madmin->get_by_id('tbl_petugas', array('idPetugas' => $this->session->userdata('idPetugas')))->row();
 
         $config['base_url'] = base_url('petugas_iuran/page');
@@ -28,7 +30,7 @@ class PetugasIuran extends CI_Controller
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
         $offset = ($page > 0) ? ($page - 1) * $config['per_page'] : 0;
-        $data['iuran'] = $this->Madmin->get_data_paginated('tbl_iuran_wajib', $config['per_page'], $offset, $config['sort'])->result();
+        $data['iuran'] = $this->Madmin->get_data_paginated('tbl_iuran_wajib', $config['per_page'], $offset, $config['sort'], ['idPetugas' => $idPetugas])->result();
 
         $data['links']['pagination'] = $this->pagination->create_links();
         $data['links']['prev_page'] = ($page > 1) ? $page - 1 : 1;
@@ -49,7 +51,8 @@ class PetugasIuran extends CI_Controller
         }
         $data['petugas'] = $this->Madmin->get_by_id('tbl_petugas', array('idPetugas' => $this->session->userdata('idPetugas')))->row();
         $data['user'] = $this->Madmin->get_all_data('tbl_user')->result();
-        $data['petugas1'] = $this->Madmin->get_all_data('tbl_petugas')->result();
+        $data['petugas1'] = $this->session->userdata('Petugas')['name'];
+
         $this->load->view('petugas/layout/header', $data);
         $this->load->view('petugas/layout/menu', $data);
         $this->load->view('petugas/iuran/form_tambah', $data);
@@ -62,32 +65,27 @@ class PetugasIuran extends CI_Controller
             redirect('petugas_iuran');
         } else {
             $this->form_validation->set_rules('idUser', 'Nama User', 'required');
-            $this->form_validation->set_rules('idPetugas', 'Nama Petugas', 'required');
             $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
             $this->form_validation->set_rules('paketBayar', 'Paket Bayar', 'required');
             $this->form_validation->set_rules('status', 'Status', 'required');
 
             if ($this->form_validation->run() == FALSE) {
                 $error_idUser = form_error('idUser');
-                $error_idPetugas = form_error('idPetugas');
                 $error_tanggal = form_error('tanggal');
                 $error_paketBayar = form_error('paketBayar');
                 $error_status = form_error('status');
 
                 $input_idUser = $this->input->post('idUser');
-                $input_idPetugas = $this->input->post('idPetugas');
                 $input_tanggal = $this->input->post('tanggal');
                 $input_paketBayar = $this->input->post('paketBayar');
                 $input_status = $this->input->post('status');
 
                 $this->session->set_flashdata('error_idUser', $error_idUser);
-                $this->session->set_flashdata('error_idPetugas', $error_idPetugas);
                 $this->session->set_flashdata('error_tanggal', $error_tanggal);
                 $this->session->set_flashdata('error_paketBayar', $error_paketBayar);
                 $this->session->set_flashdata('error_status', $error_status);
 
                 $this->session->set_flashdata('input_idUser', $input_idUser);
-                $this->session->set_flashdata('input_idPetugas', $input_idPetugas);
                 $this->session->set_flashdata('input_tanggal', $input_tanggal);
                 $this->session->set_flashdata('input_paketBayar', $input_paketBayar);
                 $this->session->set_flashdata('input_status', $input_status);
@@ -95,7 +93,7 @@ class PetugasIuran extends CI_Controller
             } else {
 
                 $id_u = $this->input->post('idUser');
-                $id_p = $this->input->post('idPetugas');
+                $id_p = $this->session->userdata('Petugas')['idPetugas'];
                 $tanggal = $this->input->post('tanggal');
                 $paketbayar = $this->input->post('paketBayar');
                 $status = $this->input->post('status');

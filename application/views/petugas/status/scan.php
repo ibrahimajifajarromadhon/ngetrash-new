@@ -68,3 +68,69 @@
             </div>
         </div>
         <!-- /page content -->
+        
+        <!-- Scan Qr Code -->
+        <script>
+          let video = document.getElementById('preview');
+          let canvasElement = document.getElementById('canvas');
+          let canvas = canvasElement.getContext('2d');
+          let scanForm = document.getElementById('scanForm');
+          let idUserInput = document.getElementById('idUser');
+          let scanning = false;
+
+          function startScan() {
+            navigator.mediaDevices.getUserMedia({
+              video: {
+                facingMode: 'environment'
+              }
+            }).then(function(stream) {
+              video.srcObject = stream;
+              video.setAttribute('playsinline', true);
+              video.play();
+              scanning = true; // Set status scanning menjadi true
+              document.getElementById('btnStartScan').style.display = 'none'; // Sembunyikan tombol Mulai Scan
+              document.getElementById('btnStopScan').style.display = 'block'; // Tampilkan tombol Tutup Scan
+              requestAnimationFrame(tick);
+            }).catch(function(err) {
+              console.error("Error accessing the camera: ", err);
+              alert("Could not access the camera. Please check your camera permissions.");
+            });
+          }
+
+          function stopScan() {
+            scanning = false; // Set status scanning menjadi false
+            if (video.srcObject) {
+              let stream = video.srcObject;
+              let tracks = stream.getTracks();
+
+              tracks.forEach(function(track) {
+                track.stop(); // Hentikan setiap track yang terhubung ke stream
+              });
+
+              video.srcObject = null; // Set objek video menjadi null untuk menghentikan tampilan video
+            }
+
+            document.getElementById('btnStartScan').style.display = 'block'; // Tampilkan tombol Mulai Scan
+            document.getElementById('btnStopScan').style.display = 'none'; // Sembunyikan tombol Tutup Scan
+            canvas.clearRect(0, 0, canvasElement.width, canvasElement.height); // Bersihkan canvas
+          }
+
+          function tick() {
+            if (!scanning) return; // Hentikan pemindaian jika scanning false
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+              canvasElement.height = video.videoHeight;
+              canvasElement.width = video.videoWidth;
+              canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+              let imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+              let code = jsQR(imageData.data, imageData.width, imageData.height, {
+                inversionAttempts: 'dontInvert',
+              });
+              if (code) {
+                idUserInput.value = code.data;
+                scanForm.submit();
+                return; // Hentikan pemindaian setelah mendapatkan QR code
+              }
+            }
+            requestAnimationFrame(tick);
+          }
+        </script>

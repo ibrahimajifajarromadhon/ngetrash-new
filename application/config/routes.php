@@ -57,14 +57,21 @@ $route['admin/login'] = 'Admin/login';
 $route['admin/register'] = 'Admin/register';
 
 $route['admin_petugas'] = 'AdminPetugas';
-$route['admin_petugas/delete/(:num)'] = 'AdminPetugas/delete/$1';
 $route['admin_petugas/ubah_status/(:num)'] = 'AdminPetugas/ubah_status/$1';
 $route['admin_petugas/page/(:num)'] = 'AdminPetugas/index/$1';
+$route['admin_petugas/add'] = 'AdminPetugas/add';
+$route['admin_petugas/save'] = 'AdminPetugas/save';
+$route['admin_petugas/get_by_id/(:num)'] = 'AdminPetugas/get_by_id/$1';
+$route['admin_petugas/edit'] = 'AdminPetugas/edit';
+$route['admin_petugas/delete/(:num)'] = 'AdminPetugas/delete/$1';
 
 $route['admin_user'] = 'AdminUser';
-$route['admin_user/delete/(:num)'] = 'AdminUser/delete/$1';
-$route['admin_user/ubah_status/(:num)'] = 'AdminUser/ubah_status/$1';
 $route['admin_user/page/(:num)'] = 'AdminUser/index/$1';
+$route['admin_user/add'] = 'AdminUser/add';
+$route['admin_user/save'] = 'AdminUser/save';
+$route['admin_user/get_by_id/(:num)'] = 'AdminUser/get_by_id/$1';
+$route['admin_user/edit'] = 'AdminUser/edit';
+$route['admin_user/delete/(:num)'] = 'AdminUser/delete/$1';
 
 $route['admin_print/laporan_petugas/page/(:num)'] = 'Admin/laporan_petugas/$1';
 $route['admin_print/laporan_user/page/(:num)'] = 'Admin/laporan_user/$1';

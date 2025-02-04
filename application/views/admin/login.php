@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png'); ?>">
+  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo-brand.png'); ?>">
 
   <title>Login Admin | NgeTrash</title>
 
@@ -61,7 +61,7 @@
             </div>
           <?php endif; ?>
           <div>
-            <input type="text" id="userName" name="userName" class="form-control" placeholder="Username" value="<?php echo $this->session->flashdata('input_userName') ?>" required />
+            <input type="text" id="userName" name="userName" class="form-control" placeholder="Username" value="<?php echo $this->session->flashdata('input_userName') ?>" required autocomplete="on"/>
           </div>
           <?php if ($this->session->flashdata('error_password')) : ?>
             <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">

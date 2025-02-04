@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png'); ?>">
+  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo-brand.png'); ?>">
 
   <title>NgeTrash</title>
 
@@ -244,16 +244,16 @@
                               <form id="form1" class="form-group flex-wrap p-3">
                                 <h3 for="exampleInputEmail1" class="form-label text-uppercase fw-bold text-black mt-0 d-flex justify-content-center">Profil</h3>
                                 <div class="form-input col-lg-12 my-4 mt-0">
-                                  <label for="exampleInputEmail1" class="form-label fs-6 text-uppercase fw-bold text-black">Email</label>
-                                  <input type="text" class="form-control ps-3" value="<?php echo $user->userName; ?>" disabled>
+                                  <label id="exampleInputEmail1" class="form-label fs-6 text-uppercase fw-bold text-black">Email</label>
+                                  <input type="email" class="form-control ps-3" value="<?php echo $user->userName; ?>" disabled>
                                 </div>
                                 <div class="form-input col-lg-12 my-4 mt-0">
-                                  <label for="exampleInputEmail2" class="form-label fs-6 text-uppercase fw-bold text-black">Nama</label>
+                                  <label id="exampleInputEmail2" class="form-label fs-6 text-uppercase fw-bold text-black">Nama</label>
                                   <input type="text" class="form-control ps-3" value="<?php echo $user->name; ?>" disabled></input>
                                 </div>
                                 <div class="form-input col-lg-12 my-4 mt-0">
-                                  <label for="exampleInputEmail2" class="form-label fs-6 text-uppercase fw-bold text-black">Alamat</label>
-                                  <input type="text" class="form-control ps-3" value="<?php echo $user->alamat; ?>" disabled></input>
+                                  <label id="exampleInputEmail2" class="form-label fs-6 text-uppercase fw-bold text-black">Alamat</label>
+                                  <textarea type="text" class="form-control ps-3" disabled><?php echo $user->alamat; ?></textarea>
                                 </div>
                               </form>
                             </div>
@@ -274,41 +274,3 @@
     </nav>
 
   </section>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var currentYear = new Date().getFullYear();
-      var currentMonth = new Date().getMonth() + 1;
-
-      function generateEvents(year, month) {
-        var events = [];
-        var daysInMonth = new Date(year, month, 0).getDate();
-        for (var i = 1; i <= daysInMonth; i++) {
-          var start = year + '-' + (month < 10 ? '0' : '') + month + '-' + (i < 10 ? '0' : '') + i;
-          var eventTitle = '';
-          var eventColor = '';
-          if (i === 1 || i === 10) {
-            eventTitle = 'Pembayaran';
-            eventColor = '#FF4500';
-          } else if (i === 4 || i === 7 || i === 11 || i === 14 || i === 18 || i === 21 || i === 25 || i === 28) {
-            eventTitle = 'Pengambilan';
-            eventColor = '#32CD32';
-          }
-          if (eventTitle !== '') {
-            events.push({
-              title: eventTitle,
-              start: start,
-              color: eventColor
-            });
-          }
-        }
-        return events;
-      }
-
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: generateEvents(currentYear, currentMonth)
-      });
-      calendar.render();
-    });
-  </script>

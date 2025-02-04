@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo-brand.png'); ?>">
 
     <title>NgeTrash - Login User</title>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
@@ -167,7 +167,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group py-2">
-                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="userName" name="userName" placeholder="Enter your username" value="<?php echo $this->session->flashdata('input_userName') ?>" required> </div>
+                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="userName" name="userName" placeholder="Enter your username" value="<?php echo $this->session->flashdata('input_userName') ?>" required autocomplete="on"> </div>
                             </div>
                             <?php if ($this->session->flashdata('error_password')) : ?>
                                 <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">

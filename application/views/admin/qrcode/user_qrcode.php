@@ -41,8 +41,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 10px">No</th>
-                                                        <th>Nama User</th>
-                                                        <th>Alamat User</th>
+                                                        <th>Nama</th>
+                                                        <th>Alamat</th>
                                                         <th style="width: 230px">QR Code</th>
                                                         <th style="width: 200px">Download QR Code</th>
                                                     </tr>

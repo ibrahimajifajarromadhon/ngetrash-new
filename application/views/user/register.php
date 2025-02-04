@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo-brand.png'); ?>">
 
     <title>NgeTrash - Register User</title>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
@@ -158,7 +158,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group py-2">
-                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="name" name="name" placeholder="Enter your name" value="<?php echo $this->session->flashdata('input_name') ?>" required> </div>
+                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="name" name="name" placeholder="Enter your name" value="<?php echo $this->session->flashdata('input_name') ?>" required autocomplete="on"> </div>
                             </div>
                             <?php if ($this->session->flashdata('error_userName')) : ?>
                                 <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">
@@ -167,7 +167,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group py-2">
-                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="userName" name="userName" placeholder="Enter your username" value="<?php echo $this->session->flashdata('input_userName') ?>" required> </div>
+                                <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" id="userName" name="userName" placeholder="Enter your username" value="<?php echo $this->session->flashdata('input_userName') ?>" required autocomplete="on"> </div>
                             </div>
                             <?php if ($this->session->flashdata('error_password')) : ?>
                                 <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">
@@ -176,7 +176,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group py-2 pb-2">
-                                <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="password" id="password" name="password" placeholder="Enter your password" value="<?php echo $this->session->flashdata('input_password') ?>" required> </div>
+                                <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="password" id="password" name="password" placeholder="Enter your password" value="<?php echo $this->session->flashdata('input_password') ?>" required autocomplete="on"> </div>
                             </div>
                             <?php if ($this->session->flashdata('error_alamat')) : ?>
                                 <div class="pb-0 pt-3 alert alert-danger alert-dismissible text-whitesmoke">
@@ -185,12 +185,9 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group py-2">
-                                <div class="input-field"> <i class="fas fa-map-marker-alt p-2"></i><textarea id="alamat" name="alamat" class="form-control border-0" placeholder="Enter your address" required><?php echo $this->session->flashdata('input_alamat') ?></textarea> </div>
+                                <div class="input-field"> <i class="fas fa-map-marker-alt p-2"></i><textarea id="alamat" name="alamat" class="form-control border-0" placeholder="Enter your address" required autocomplete="on"><?php echo $this->session->flashdata('input_alamat') ?></textarea> </div>
                             </div>
-                            <input type="hidden" id="saldoMasuk" name="saldoMasuk" value="0">
-                            <input type="hidden" id="saldoKeluar" name="saldoKeluar" value="0">
-                            <input type="hidden" id="totalSaldo" name="totalSaldo" value="0">
-                            <input type="hidden" id="statusAktif" name="statusAktif" value="N">
+                            <input type="hidden" id="statusAktif" name="statusAktif" value="N" autocomplete="on">
                             <button class="btn btn-block mt-3" type="submit">Register</button>
                             <div class="text-center pt-4 text-muted">Don't have an account? <a href="<?php echo site_url('user/login'); ?>">Login</a> </div>
                         </form>

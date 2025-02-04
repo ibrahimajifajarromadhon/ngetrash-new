@@ -1,6 +1,6 @@
 <!-- Footer Section Starts -->
 <section class="footer-2">
-  <footer class="container footer-2-container  d-flex align-items-center">
+  <footer class="container footer-2-container d-flex align-items-center">
     <div class="col-md-10 d-flex justify-content-center justify-content-md-start">
       <p class="footer2-paragraph">© 2023 NgeTrash. All rights reserved.</p>
     </div>
@@ -18,39 +18,7 @@
     </div>
   </footer>
 </section>
-<!-- mengatur peta diy -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ03mkue5yADYzuyq1Xzi0sVlRhsz3N8c&callback=initMap" async defer></script>
-<script>
-  var map;
 
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: -7.8012,
-        lng: 110.3648
-      }, // Pusat peta di Yogyakarta
-      zoom: 12 // Level zoom awal
-    });
-
-    // Tambahkan marker di Yogyakarta
-    var marker = new google.maps.Marker({
-      position: {
-        lat: -7.8012,
-        lng: 110.3648
-      },
-      map: map,
-      title: 'Special Region of Yogyakarta',
-      animation: google.maps.Animation.DROP
-    });
-
-    marker.addListener('click', function() {
-      var infowindow = new google.maps.InfoWindow({
-        content: marker.getTitle()
-      });
-      infowindow.open(map, marker);
-    });
-  }
-</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>

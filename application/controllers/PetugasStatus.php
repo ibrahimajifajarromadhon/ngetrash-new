@@ -15,6 +15,7 @@ class PetugasStatus extends CI_Controller
         if (empty($this->session->userdata('Petugas'))) {
             redirect('petugas/login');
         }
+        $idPetugas = $this->session->userdata('Petugas')['idPetugas'];
         $data['petugas'] = $this->Madmin->get_by_id('tbl_petugas', array('idPetugas' => $this->session->userdata('idPetugas')))->row();
         $data['petugas1'] = $this->Madmin->get_all_data('tbl_petugas')->result();
 
@@ -29,7 +30,7 @@ class PetugasStatus extends CI_Controller
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
         $offset = ($page > 0) ? ($page - 1) * $config['per_page'] : 0;
-        $data['status'] = $this->Madmin->get_data_paginated('tbl_status_pengambilan', $config['per_page'], $offset, $config['sort'])->result();
+        $data['status'] = $this->Madmin->get_data_paginated('tbl_status_pengambilan', $config['per_page'], $offset, $config['sort'], ['idPetugas' => $idPetugas])->result();
 
         $data['links']['pagination'] = $this->pagination->create_links();
         $data['links']['prev_page'] = ($page > 1) ? $page - 1 : 1;

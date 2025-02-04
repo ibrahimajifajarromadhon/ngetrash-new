@@ -44,7 +44,7 @@
                                         <thead>
                                             <tr class="">
                                                 <th style="width: 10px">No.</th>
-                                                <th>Nama User</th>
+                                                <th>Nama</th>
                                                 <th>Username</th>
                                                 <th>Alamat</th>
                                                 <th>Status Akun</th>

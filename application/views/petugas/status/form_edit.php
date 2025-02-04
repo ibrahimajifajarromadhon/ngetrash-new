@@ -35,8 +35,8 @@
                                         <div class="contact-form">
                                             <form name="sentMessage" method="post" action="<?php echo site_url('petugas_status/edit'); ?>" >
                                                 <input type="hidden" name="id" value="<?php echo $status->idStatus; ?>">
-                                                <div class="control-group mb-3">
-                                                    <label for="idUser" class="font-weight-bold">Nama User</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idUser" class="font-weight-bold">Nama User</label>
                                                     <input type="hidden" name="idUser" value="<?php echo $status->idUser; ?>">
                                                     <?php
                                                     $user_id = $status->idUser;
@@ -44,8 +44,8 @@
                                                     ?>
                                                     <input class="form-control" value="<?php echo $user->name; ?>" disabled>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="idPetugas" class="font-weight-bold">Nama Petugas</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="idPetugas" class="font-weight-bold">Nama Petugas</label>
                                                     <input type="hidden" name="idPetugas" value="<?php echo $status->idPetugas; ?>">
                                                     <input class="form-control" value=<?php
                                                             $petugas_id = $status->idPetugas;
@@ -54,8 +54,8 @@
                                                             ?> disabled>
                                                     </input>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="tanggal" class="font-weight-bold">Tanggal</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="tanggal" class="font-weight-bold">Tanggal</label>
                                                     <div class="input-group date" data-provide="datepicker">
                                                     <input type="hidden" name="tanggal" value="<?php echo $status->tanggal; ?>">
                                                     <input type="date" class="form-control" value=<?php
@@ -69,8 +69,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="control-group mb-3">
-                                                    <label for="keterangan" class="font-weight-bold">Keterangan</label>
+                                                <div class="control-group mb-3 mx-1">
+                                                    <label id="keterangan" class="font-weight-bold">Keterangan</label>
                                                     <select class="form-control" name="keterangan">
                                                     <option disabled selected>Pilih keterangan</option>
                                                         <option value="1" <?= ($status->keterangan == 'Belum Diambil') ? 'selected' : '' ?>>Belum Diambil</option>
@@ -78,7 +78,7 @@
                                                     </select>
                                                 </div>
 
-                                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMesrsageButton">Simpan</button>
+                                                <button class="btn btn-primary py-2 px-4 mx-1" type="submit" id="sendMesrsageButton">Simpan</button>
                                         </div>
                                         </form>
                                     </div>

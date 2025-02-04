@@ -28,19 +28,6 @@
                                         <div class="card-header">
                                             <h3 class="card-title">Data Petugas</h3>
                                         </div>
-                                        <?php if ($this->session->flashdata('active')) : ?>
-                                            <div class="ml-2 mr-2 mt-2 mb-0 alert alert-success alert-dismissible text-whitesmoke">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                <strong><?php echo $this->session->flashdata('active'); ?></strong>
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <?php if ($this->session->flashdata('non_active')) : ?>
-                                            <div class="ml-2 mr-2 mt-2 mb-0 alert alert-danger alert-dismissible text-whitesmoke">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                <strong><?php echo $this->session->flashdata('non_active'); ?></strong>
-                                            </div>
-                                        <?php endif; ?>
 
                                         <?php if ($this->session->flashdata('success')) : ?>
                                             <div class="ml-2 mr-2 mt-2 mb-0 alert alert-success alert-dismissible text-whitesmoke">
@@ -48,15 +35,17 @@
                                                 <strong><?php echo $this->session->flashdata('success'); ?></strong>
                                             </div>
                                         <?php endif; ?>
-
+                                        <div class="pl-2 pt-2">
+                                            <a href="<?php echo site_url('admin_petugas/add'); ?>" class="btn btn-sm btn-info float-left p-2"><b> Tambah Data Petugas </b></a>
+                                        </div>
                                         <div class="table-responsive p-2">
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 10px">No</th>
-                                                        <th>Nama Petugas</th>
+                                                        <th>Nama</th>
                                                         <th>Username</th>
-                                                        <th>Status Aktif</th>
+                                                        <th>Status Akun</th>
                                                         <th style="width: 230px">Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -79,7 +68,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="btn-group">
-                                                                <a href="<?php echo site_url('admin_petugas/ubah_status/' . $p->idPetugas); ?>" class="btn btn-warning">Ubah Status</a>
+                                                                <a href="<?php echo site_url('admin_petugas/get_by_id/' . $p->idPetugas); ?>" class="btn btn-warning">Ubah Data</a>
                                                                 <a href="<?php echo site_url('admin_petugas/delete/' . $p->idPetugas); ?>" onclick="return confirm('Anda yakin menghapus data ini?')" class="btn btn-danger">Hapus</a>
                                                             </div>
                                                         </td>
