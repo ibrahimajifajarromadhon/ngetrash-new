@@ -1,0 +1,4 @@
+1. Install XAMPP
+2. Buat database baru dengan nama ngetrash
+3. Masukkan database ngetrash.sql di bagian import
+4. Jalankan aplikasi untuk admin = http://localhost/ngetrash/admin, petugas = http://localhost/ngetrash/petugas, user = http://localhost/ngetrash

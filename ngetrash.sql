@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2025 pada 13.29
+-- Waktu pembuatan: 21 Agu 2025 pada 07.06
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -68,7 +68,8 @@ INSERT INTO `tbl_iuran_wajib` (`idIuran`, `tanggal`, `status`, `paketBayar`, `id
 (94, '2024-07-13', 'Sudah Bayar', '30000', 19, 21),
 (95, '2024-07-13', 'Sudah Bayar', '330000', 14, 21),
 (98, '2025-02-04', 'Sudah Bayar', '10000', 20, 21),
-(99, '2025-02-04', 'Sudah Bayar', '10000', 19, 24);
+(99, '2025-02-04', 'Sudah Bayar', '10000', 19, 24),
+(100, '2025-02-14', 'Sudah Bayar', '10000', 23, 21);
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,8 @@ INSERT INTO `tbl_status_pengambilan` (`idStatus`, `keterangan`, `tanggal`, `idUs
 (69, 'Sudah Diambil', '2024-07-01', 14, 22),
 (71, 'Sudah Diambil', '2024-07-10', 14, 21),
 (72, 'Sudah Diambil', '2024-07-24', 17, 21),
-(74, 'Sudah Diambil', '2025-02-12', 19, 21);
+(74, 'Sudah Diambil', '2025-02-12', 19, 21),
+(75, 'Sudah Diambil', '2025-02-14', 19, 21);
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,8 @@ INSERT INTO `tbl_user` (`idUser`, `name`, `userName`, `password`, `alamat`, `sta
 (18, 'Syafrudin', 'udin@gmail.com', '$2y$10$HiPfAywv0w4k42GOV19N6eOuTmj6ws.7Uygxq27Fvckm8hFZ4jOKC', 'Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta', 'Y'),
 (19, 'Suseno', 'suseno@gmail.com', '$2y$10$ufzdZHrkuZwvZ6zwm2Q2P.vlPWv6gSth7/BAi5hCdWBra5Gs84d76', 'Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta', 'Y'),
 (20, 'Evan', 'evan@gmail.com', '$2y$10$vpQuT5Dl0v2LIQAYHM2i9.nqBP/BLZCdXYbcfWhjCXQeQ5xiX1lV2', 'Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta ', 'Y'),
-(22, 'Soleh', 'soleh@gmail.com', '$2y$10$5hBidJhde012KSpaOLr3q.4PriEJ4OgNiSIjFz5Y2RRIUUr3QJ5u2', 'Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta', 'Y');
+(22, 'Soleh', 'soleh@gmail.com', '$2y$10$5hBidJhde012KSpaOLr3q.4PriEJ4OgNiSIjFz5Y2RRIUUr3QJ5u2', 'Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta', 'Y'),
+(23, 'Yoga', 'yoga@gmail.com', '$2y$10$Xx2c8r9Y8CS5NGm07a7P0ev9xeucT6aLSq632b4WIF3Lm2aKIEkVi', 'Jogja', 'Y');
 
 --
 -- Indexes for dumped tables
@@ -200,7 +203,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT untuk tabel `tbl_iuran_wajib`
 --
 ALTER TABLE `tbl_iuran_wajib`
-  MODIFY `idIuran` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `idIuran` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_petugas`
@@ -212,13 +215,13 @@ ALTER TABLE `tbl_petugas`
 -- AUTO_INCREMENT untuk tabel `tbl_status_pengambilan`
 --
 ALTER TABLE `tbl_status_pengambilan`
-  MODIFY `idStatus` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `idStatus` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `idUser` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idUser` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

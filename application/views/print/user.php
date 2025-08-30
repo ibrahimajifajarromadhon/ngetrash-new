@@ -52,9 +52,6 @@
             <th>Nama User</th>
             <th>Username</th>
             <th>Alamat</th>
-            <th>Saldo Masuk</th>
-            <th>Saldo Keluar</th>
-            <th>Total Saldo</th>
             <th>Status Akun</th>
         </tr>
         <tbody>
@@ -66,9 +63,6 @@
                 <td><?php echo $usr->name; ?></td>
                 <td><?php echo $usr->userName; ?></td>
                 <td><?php echo $usr->alamat; ?></td>
-                <td>Rp. <?php echo $usr->saldoMasuk; ?></td>
-                <td>Rp. <?php echo $usr->saldoKeluar; ?></td>
-                <td>Rp. <?php echo $usr->totalSaldo; ?></td>
                 <td><b><?php if ($usr->statusAktif == "Y") {
                             echo "Aktif";
                         } else {

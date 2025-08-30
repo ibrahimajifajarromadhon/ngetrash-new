@@ -82,24 +82,24 @@ class Madmin extends CI_Model{
 	}
 
 	public function get_data_paginated($table, $limit, $offset, $order_by, $where = [])
-{
-    $this->db->from($table);
-    
-    // Pastikan filter ID Petugas digunakan
-    if (!empty($where)) {
-        foreach ($where as $key => $value) {
-            $this->db->where($key, $value);
-        }
-    }
-    
-    // Urutkan berdasarkan kolom yang diinginkan
-    $this->db->order_by($order_by, 'DESC');
-    
-    // Terapkan limit dan offset untuk pagination
-    $this->db->limit($limit, $offset);
+	{
+		$this->db->from($table);
+		
+		// Pastikan filter ID Petugas digunakan
+		if (!empty($where)) {
+			foreach ($where as $key => $value) {
+				$this->db->where($key, $value);
+			}
+		}
+		
+		// Urutkan berdasarkan kolom yang diinginkan
+		$this->db->order_by($order_by, 'DESC');
+		
+		// Terapkan limit dan offset untuk pagination
+		$this->db->limit($limit, $offset);
 
-    return $this->db->get();
-}
+		return $this->db->get();
+	}
 
 
 	public function get_by_id($tabel, $id){
